@@ -1,23 +1,26 @@
 package inputoutput;
 
+import model.Person;
+import service.AgeCalculatorService;
+
 import java.util.Scanner;
 
 public class AgeCalculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Person person = new Person();
+        AgeCalculatorService ageCalculatorService = new AgeCalculatorService();
 
         System.out.println("Bom dia! \n" +
                 "Por favor, informe seu nome: ");
-        var name = scanner.nextLine();
+        person.setName(scanner.nextLine());
 
         System.out.println("Agora informe o ano do seu nascimento: ");
-        var yearBorn = scanner.nextInt();
+        person.setYearBorn(scanner.nextInt());
 
-        var actualYear = java.time.Year.now().getValue();
+        int age = ageCalculatorService.calculate(person);
 
-        var age = actualYear - yearBorn;
-
-        System.out.printf("\nOlá %s, você tem %d anos!", name, age);
+        System.out.printf("\nOlá %s, você tem %d anos!", person.getName(), age);
 
         scanner.close();
     }
