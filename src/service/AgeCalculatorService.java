@@ -10,6 +10,6 @@ public class AgeCalculatorService {
         LocalDate dateToday = LocalDate.now();
         int currentYear = dateToday.getYear();
 
-        return currentYear- person.getYearBorn();
+        return currentYear- person.getBirthDate();
     }
 }
