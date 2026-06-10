@@ -1,18 +1,56 @@
 package mathoperations;
 
+import model.Rectangle;
+import service.InputValidationService;
+import service.RectangleAreaService;
+
 import java.util.Scanner;
 
-public class RectangleAreaCalculator{
-    public static void main(String[] args) {
+public class RectangleAreaCalculator {
+    static void main(String[] args) {
+
+        RectangleAreaService rectangleAreaService = new RectangleAreaService();
+
+        InputValidationService inputValidationService = new InputValidationService();
+
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite o primeiro lado a ser calculado: ");
-        double firstSide = scanner.nextDouble();
+        Rectangle rectangle = new Rectangle();
 
-        System.out.println("Digite o segundo lado a ser calculado: ");
-        double secondSide =  scanner.nextDouble();
+        while (true) {
+            try {
+                rectangle.setWidth(
+                        inputValidationService.readDouble(
+                                scanner,
+                                "Digite a largura (Width): "
+                        )
+                );
 
-        double area = firstSide * secondSide;
+                break;
+
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        while (true) {
+
+            try {
+                rectangle.setHeight(
+                        inputValidationService.readDouble(
+                                scanner,
+                                "Digite a altura (Height): "
+                        )
+                );
+
+                break;
+
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        double area = rectangleAreaService.calculateArea(rectangle.getWidth(), rectangle.getHeight());
 
         System.out.printf("A área do retângulo é: %.2f", area);
 
