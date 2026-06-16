@@ -1,31 +1,54 @@
 package variables;
 
+import model.PersonAge;
+import service.AgeDifferenceCalculatorService;
+
 import java.util.Scanner;
 
 public class AgeDifferenceCalculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        AgeDifferenceCalculatorService ageDifferenceCalculatorService = new AgeDifferenceCalculatorService();
 
         final String GREETING = "Olá!";
 
-        System.out.println(GREETING + "\n\nDigite o nome da pessoa mais velha: ");
-        var firstName = scanner.nextLine();
+        System.out.println(GREETING);
 
-        System.out.println("Agora digite a idade dela: ");
-        var firstAge = scanner.nextInt();
-        scanner.nextLine();
+        PersonAge firstPerson = createPerson(scanner, "Pessoa 1");
+        PersonAge secondPerson = createPerson(scanner, "Pessoa 2");
 
-        System.out.println("Digite o nome da pessoa mais nova: ");
-        var secondName = scanner.nextLine();
+        var result = ageDifferenceCalculatorService.differenceCalculator(firstPerson.getAge(), secondPerson.getAge());
 
-        System.out.println("Agora digite a idade da pessoa mais nova: ");
-        var secondAge = scanner.nextInt();
-
-        var result = firstAge - secondAge;
-
-        System.out.printf("A diferença de idade entre %s e %s é de %d anos!",
-                         firstName, secondName, result);
+        System.out.printf("A diferença de idade entre %s e %s é de %d anos!", firstPerson.getName(), secondPerson.getName(), result);
 
         scanner.close();
+    }
+
+    private static PersonAge createPerson(Scanner scanner, String label) {
+        PersonAge person = new model.PersonAge();
+
+        while (true) {
+            try {
+                System.out.printf("\n%s\nDigite o nome: ", label);
+                person.setName(scanner.nextLine());
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        while (true) {
+            try {
+                System.out.println("Digite a idade: ");
+                String inputValue = scanner.nextLine();
+                person.setAge(Integer.parseInt(inputValue));
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Erro: Digite apenas números inteiros: ");
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return person;
     }
 }
