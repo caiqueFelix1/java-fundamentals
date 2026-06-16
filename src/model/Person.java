@@ -12,13 +12,18 @@ public class Person {
     }
 
     public void setName(String name) {
-        if (name != null && name.trim().length()>=2) {
-            this.name = name;
-        } else {
+        if (name == null || name.trim().length()<2){
             throw new IllegalArgumentException(
                     "Nome vazio ou com menos de dois caracteres, por favor tente novamente!"
             );
         }
+
+        if (!name.trim().matches("^[a-zA-ZÀ-ÿ ]+$")){
+            throw new IllegalArgumentException(
+                    "O nome deve conter apenas letras, por favor tente novamente!"
+            );
+        }
+        this.name = name;
     }
 
     public int getBirthDate() {
