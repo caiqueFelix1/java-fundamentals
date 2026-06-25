@@ -1,4 +1,4 @@
-package model;
+package abstractionandencapsulation.api.geometry.model;
 
 public class Square {
     private double side;

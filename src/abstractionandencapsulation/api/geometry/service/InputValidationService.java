@@ -1,4 +1,4 @@
-package service;
+package abstractionandencapsulation.api.geometry.service;
 
 import java.util.Scanner;
 

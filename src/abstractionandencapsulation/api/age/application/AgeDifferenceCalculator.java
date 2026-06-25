@@ -1,7 +1,7 @@
-package variables;
+package abstractionandencapsulation.api.age.application;
 
-import model.PersonAge;
-import service.AgeDifferenceCalculatorService;
+import abstractionandencapsulation.api.age.model.PersonAge;
+import abstractionandencapsulation.api.age.service.AgeDifferenceCalculatorService;
 
 import java.util.Scanner;
 
@@ -25,7 +25,7 @@ public class AgeDifferenceCalculator {
     }
 
     private static PersonAge createPerson(Scanner scanner, String label) {
-        PersonAge person = new model.PersonAge();
+        PersonAge person = new PersonAge();
 
         while (true) {
             try {

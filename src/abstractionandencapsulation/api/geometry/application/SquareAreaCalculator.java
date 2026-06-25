@@ -1,10 +1,9 @@
-package mathoperations;
+package abstractionandencapsulation.api.geometry.application;
 
-import model.Square;
-import service.InputValidationService;
-import service.SquareAreaCalculatorService;
+import abstractionandencapsulation.api.geometry.model.Square;
+import abstractionandencapsulation.api.geometry.service.InputValidationService;
+import abstractionandencapsulation.api.geometry.service.SquareAreaCalculatorService;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class SquareAreaCalculator {

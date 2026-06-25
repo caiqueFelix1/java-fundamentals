@@ -1,4 +1,4 @@
-package model;
+package abstractionandencapsulation.api.age.model;
 
 public class PersonAge {
 

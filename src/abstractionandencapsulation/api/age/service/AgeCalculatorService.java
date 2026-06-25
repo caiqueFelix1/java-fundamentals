@@ -1,6 +1,6 @@
-package service;
+package abstractionandencapsulation.api.age.service;
 
-import model.Person;
+import abstractionandencapsulation.api.age.model.Person;
 
 import java.time.LocalDate;
 

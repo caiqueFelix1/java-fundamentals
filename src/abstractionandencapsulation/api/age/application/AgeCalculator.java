@@ -1,7 +1,7 @@
-package inputoutput;
+package abstractionandencapsulation.api.age.application;
 
-import model.Person;
-import service.AgeCalculatorService;
+import abstractionandencapsulation.api.age.model.Person;
+import abstractionandencapsulation.api.age.service.AgeCalculatorService;
 
 import java.util.Scanner;
 

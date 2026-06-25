@@ -1,8 +1,8 @@
-package mathoperations;
+package abstractionandencapsulation.api.geometry.application;
 
-import model.Rectangle;
-import service.InputValidationService;
-import service.RectangleAreaService;
+import abstractionandencapsulation.api.geometry.model.Rectangle;
+import abstractionandencapsulation.api.geometry.service.InputValidationService;
+import abstractionandencapsulation.api.geometry.service.RectangleAreaService;
 
 import java.util.Scanner;
 
